@@ -1,0 +1,61 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ @font-face {
+    font-family: 'espoirregular';
+    src: url('font/espoir-webfont.woff2') format('woff2'),
+         url('font/espoir-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+ }
+body{
+    background-color: rgb(253, 244, 233);
+    height: 80vh;
+    font-family: 'espoirregular';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.Title{
+    position: relative; /* position relative pour le parent car les enfants seront en absolute, à chaque fois que des enfants sont en absolute, il faut bien spécifier que le parent est en relative*/
+    width: 50%;
+    display: flex;
+    justify-content: center
+}
+
+.Title span{
+ color: black;
+ font-size: 130px;
+ font-weight:300 ;
+ transition: 0.5s;
+ will-change: transform; /* permet au navigateur de se préparer au mieux pour éviter que la transition ne soit saccadée ou ne bug - à ne pas utiliser tout le tempps pour éviter d'alourdir le code*/
+ display: inline-block; 
+}
+.spancontainer1 span{ /* c'est le "welcome du dessus*/
+ transform-origin: bottom;
+}
+
+.spancontainer2 span{ /* c'est le welcome du bas, on ne veut pas le voir tout de suite, on veut que le span1 monte et laisse apparaitre le welcome du bas*/
+  transform-origin: top;  
+  transform: translateY(100%) rotateX(-90deg);
+}
+
+.spancontainer2 { /* l'enfant' du Title*/
+    top: 0;
+    left: 0;
+}
+.spancontainer1 { /* l'enfant du Title*/
+   bottom: 0;
+   position: absolute;
+}
+.Title:hover .spancontainer1 span{ 
+    transform: translateY(-100%) rotateX(-90deg);
+}
+.Title:hover .spancontainer2 span{ 
+    transform: translateY(0%) rotateX(0deg);
+}
