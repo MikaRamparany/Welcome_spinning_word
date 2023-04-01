@@ -35,6 +35,7 @@ body{
  transition: 0.5s;
  will-change: transform; /* permet au navigateur de se préparer au mieux pour éviter que la transition ne soit saccadée ou ne bug - à ne pas utiliser tout le tempps pour éviter d'alourdir le code*/
  display: inline-block; 
+ cursor: crosshair;
 }
 .spancontainer1 span{ /* c'est le "welcome du dessus*/
  transform-origin: bottom;
